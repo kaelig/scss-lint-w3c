@@ -2,6 +2,6 @@
   "name": "scss-lint-w3c",
   "main": "scss-lint-w3c.yml",
   "ignore": [
-    "test.scss"
+    "test"
   ]
 }
