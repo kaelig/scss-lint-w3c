@@ -40,7 +40,7 @@ and how to automate linting with a Grunt task.
 ### With bower
 
 ```
-bower install scss-lint-w3c --save
+bower install scss-lint-w3c --save-dev
 ```
 
 Add this line to your `.scss-lint.yml` configuration file:
