@@ -51,7 +51,7 @@ inherit_from: 'bower_components/scss-lint-w3c/scss-lint-w3c.yml'
 
 ### Manually
 
-Download [[scss-lint-w3c.yml]] into your project or clone this repository.
+Download [scss-lint-w3c.yml](scss-lint-w3c.yml) into your project or clone this repository.
 
 Add this line to your `.scss-lint.yml` configuration file:
 
