@@ -1,0 +1,7 @@
+{
+  "name": "scss-lint-w3c",
+  "main": "scss-lint-w3c.yml",
+  "dependencies": {
+    "scss-lint": "~0"
+  }
+}

@@ -1,0 +1,189 @@
+# Configuration settings override the default config of scss-lint, available
+# there: https://github.com/causes/scss-lint/blob/master/config/default.yml
+
+linters:
+  # The spec rarely mentions !important but seems to favor a space before
+  # the bang character: http://www.w3.org/TR/CSS21/cascade.html#important-rules
+  BangFormat:
+    enabled: true
+    space_before_bang: true
+    space_after_bang: false
+
+  # Searching "border: none" on the W3C website returns much more results
+  # than "border: 0", so I disabled this rule.
+  # Tip: re-enable this linter to make your codebase more grep-friendly
+  BorderZero:
+    enabled: false
+
+  # The spec uses standard CSS comments (`/* */`), so we should authorize
+  # their usage instead of forcing authors to use Sass comments (`//`)
+  Comment:
+    enabled: false
+
+  # The spec never seems to add space between blocks with an empty line
+  EmptyLineBetweenBlocks:
+    enabled: false
+
+  # Colors:
+  # Multiple notations are used, in different Hex lengths (3, 6),
+  # uppercase, lowercase…
+  # http://dev.w3.org/csswg/css-images-3/
+  # http://www.w3.org/TR/css3-background/
+  ColorKeyword:
+    enabled: false
+
+  HexLength:
+    enabled: false
+
+  HexNotation:
+    enabled: false
+
+  # Indentation
+  # Aside from a few exceptions, the most used
+  # indentation level is 2 spaces
+  Indentation:  # Already in default configuration
+    enabled: true
+    character: space # or 'tab'
+    width: 2
+
+  # In the specs I've read, the 0 was included
+  # http://www.w3.org/TR/css3-transforms/
+  # http://www.w3.org/TR/css3-transitions/
+  # But some exceptions exist, like the CSS3 images spec
+  # where you could find ".1px" or ".2px"
+  # http://dev.w3.org/csswg/css-images-3/
+  # so this should be left at the author's discretion
+  LeadingZero:
+    enabled: false
+
+  # The spec doesn't seem to mention anything about properties sorting
+  PropertySortOrder:
+    enabled: false
+
+  # Hyphenated lowercase (.class-name)
+  # Seems to be the most commonly used selector format
+  # Some authors diverge from this rule but exceptions are marginal
+  # http://dev.w3.org/csswg/css-images-3/
+  # http://www.w3.org/TR/css3-grid-layout/
+  SelectorFormat:
+    enabled: true
+    convention: hyphenated_lowercase
+
+  # The spec doesn't specify if you should write
+  # margin: 0 10px 0 10px; or margin: 0 10px;
+  Shorthand:
+    enabled: false
+
+  # Examples in the spec sometimes have multiple properties on one line
+  # like: margin: 0; padding: 0;
+  # Tip: re-enable this rule to make code more readable,
+  # and changes easier to track on VCS (git, mercurial, SVN…)
+  SingleLinePerProperty:
+    enabled: false
+
+  # Although best practices are favouring a single line per selector,
+  # the spec seems to always write multiple selectors on a single line
+  # Tip: re-enable this rule to make code more readable,
+  # and changes easier to track on VCS (git, mercurial, SVN…)
+  SingleLinePerSelector:
+    enabled: false
+
+  # Space after comma:
+  # The spec is somewhat consistent when it comes to spacing.
+  # Unfortunately, it's hard to draw a conclusion out of these clues:
+  #
+  # The CSS3 color specification mixes both colors notations
+  # with spaces `rgb(0, 0, 0)` and no space `rgb(0,0,0)`
+  # http://www.w3.org/TR/css3-color/
+  #
+  # CSS3 backgrounds and images use the "no space" color notation `rgb(0,0,0)`
+  # http://www.w3.org/TR/css3-background/
+  # http://dev.w3.org/csswg/css-images-3/
+  # But when it comes to gradients and transitions, there is almost always
+  # a space after the comma:
+  # `repeating-linear-gradient(red 0px, white 0px, blue 0px);`
+  #
+  # Although it's inconsistent across the spec,
+  # I enabled the space after the comma because:
+  # - recent specs put a space after commas for gradients, transforms, colors
+  # - it makes a codebase tidier and more grep-friendly
+  SpaceAfterComma:
+    enabled: true
+
+  # Across all pages specs I've browsed,
+  # there was a space after the colon:
+  # margin: 0;
+  # Sometimes multiple spaces were used to align 
+  # values together
+  # padding:      0;
+  # margin-left:  0;
+  SpaceAfterPropertyColon:
+    enabled: true
+    style: at_least_one_space
+
+  # This is very consistent across the spec:
+  # `property:` is always written with no space between the name and the colon
+  SpaceAfterPropertyName:
+    enabled: true
+
+  # This is very consistent across the spec:
+  # `selector {` is always written with 1 space between the name and the brace
+  # Single line padding is used in some examples, nicely aliging blocks:
+  # http://dev.w3.org/csswg/selectors4/
+  SpaceBeforeBrace:
+    enabled: true
+    style: space
+    allow_single_line_padding: true
+
+  # The dominating trend is to have no space between parens.
+  # for example, hsl(0, 100%, 50%) will never be written as hsl( 0, 100%, 50% )
+  SpaceBetweenParens:
+    enabled: true
+    spaces: 0
+
+  # http://www.w3.org/TR/css3-content/
+  # possible values include keywords, such as:
+  # content: open-quote | no-close-quote | close-quote
+  # Enforcing quoted strings on StringQuotes would be against the spec itself
+  StringQuotes:
+    enabled: false
+
+  # The spec is very inconsistent in that regard. We find both:
+  # body { margin: 0 }
+  # and
+  # body { margin: 0; }
+  TrailingSemicolon:
+    enabled: false
+
+  # The spec writes `0.5px` and `.5px`, but I haven't encountered cases where
+  # it said `0.50px` or `.50px`, to it looks like we can enforce this rule
+  TrailingZero:
+    enabled: true
+
+  # Same as with the above TrailingZero rule: 
+  # values such as 1.0px was never encountered
+  UnnecessaryMantissa:
+    enabled: true
+
+  # The spec doesn't take a stand on whether urls should contain domain names
+  # or protocols in them
+  UrlFormat:
+    enabled: false
+
+  # Both notations url("image.png") and url(image.png) are widely used
+  # Tip: re-enable this linter to make your codebase more grep-friendly
+  UrlQuotes:
+    enabled: false
+
+  # The spec never writes examples with vendor prefixes
+  # Tip: automate prefixing as much as possible with mixins or Autoprefixer
+  VendorPrefixes:
+    enabled: true
+    identifier_list: base
+    include: []
+    exclude: []
+
+  # The spec uses both `margin: 0` and `margin: 0 px`
+  # Tip: re-enable this linter to make your codebase more grep-friendly
+  ZeroUnit:
+    enabled: false
