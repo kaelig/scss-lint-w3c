@@ -3,8 +3,5 @@
   "main": "scss-lint-w3c.yml",
   "ignore": [
     "test.scss"
-  ],
-  "dependencies": {
-    "scss-lint": "~0"
-  }
+  ]
 }
