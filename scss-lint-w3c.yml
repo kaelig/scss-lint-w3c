@@ -38,6 +38,11 @@ linters:
   HexNotation:
     enabled: false
 
+  # The W3C doesn't seem to say whether you should have a trailing new line
+  # or not at the end of the file.
+  FinalNewline:
+    enabled: false
+
   # Indentation
   # Aside from a few exceptions, the most used
   # indentation level is 2 spaces

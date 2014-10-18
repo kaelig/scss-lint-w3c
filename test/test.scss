@@ -1,0 +1,19 @@
+// Test rules passing and throwing errors where needed
+
+/* Allow CSS comments */
+
+// Allow multiple identifiers in one selector
+// Throw error if identifier is not lowercase with hyphens
+.ErrorIfUpperCase_AndUnderScores, DIV {
+  content: "test"; // Allow quotes
+  content: 'test'; // Allow single quotes
+  content: test; // Allow no quotes
+  border : 0 ; // Throw error for spaces before a semicolon or a colon
+	text-indent: 20px; // Throw error: only two-space indentation is allowed
+  background: rgb(0,0,0); // No space after commas. Should be rgb(0, 0, 0)
+  border-color: #000 #FFf #FFFFFF white; // Allow all color notations
+  margin:10.0px .30rem 0.0; // Throw errors, these values should be simplified
+  padding-left:  20px; // Allow more than 1 space to align with subsequent rule
+  padding-right: 30px;
+  top: 0; right: 0; // Allow multiple properties on one line
+}
