@@ -16,8 +16,8 @@ Each linter rule is documented, mentionning when the W3C style hinders
 maintanability, grep-ability or readability, so you can make educated changes
 into your own configuration file.
 
-Thanks to the authors of the spec and @sds for scss-lint.
-http://www.w3.org/TR/CSS/
+Thanks to the authors of the spec and [@sds](https://github.com/sds) for scss-lint.  
+http://www.w3.org/TR/CSS/  
 https://github.com/causes/scss-lint
 
 Feel free to contribute if you see any errors or improvements.
